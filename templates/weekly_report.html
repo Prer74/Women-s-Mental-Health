@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Weekly Report{% endblock %}
+
+{% block content %}
+<div class="container mt-5 py-5">
+    <h2 class="text-center mb-5" style="color: #a34691;">Your Weekly Sentiment Report</h2>
+
+    <div class="row g-4">
+        <!-- Total Entries Section -->
+        <div class="col-md-6">
+            <div class="card shadow-sm p-4">
+                <div class="card-body text-center">
+                    <h3 class="card-title" style="color: #a34691;">Total Entries</h3>
+                    <p class="display-4">{{ total_entries }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Average Sentiment Section -->
+        <div class="col-md-6">
+            <div class="card shadow-sm p-4">
+                <div class="card-body text-center">
+                    <h3 class="card-title" style="color: #a34691;">Average Sentiment</h3>
+                    <p>Happy: {{ happy_percentage }}%</p>
+                    <p>Sad: {{ sad_percentage }}%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sentiment Bar Chart -->
+    <div class="text-center mt-5">
+        <h4>Sentiment Distribution</h4>
+        <img src="data:image/png;base64,{{ plot_url }}" alt="Sentiment Distribution Chart" class="img-fluid mt-3">
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="/journal" class="btn btn-primary" style="background-color: #a34691; padding: 10px 20px;">Back to Journal</a>
+    </div>
+</div>
+{% endblock %}

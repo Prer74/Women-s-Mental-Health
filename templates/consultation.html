@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block title %}Consultation Services{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <!-- Header Section -->
+    <div class="row">
+        <div class="col-md-12 text-center mb-5">
+            <h1 class="display-4" style="color: #a34691;">
+                <i class="fas fa-comments"></i> Consultation Services
+            </h1>
+            <p class="lead text-muted">Connect with mental health professionals who understand your unique needs. We offer individual therapy, group therapy, and online consultations to help you find balance and mental clarity.</p>
+        </div>
+    </div>
+
+    <!-- Service Cards Section -->
+    <div class="row text-center">
+        <!-- Individual Therapy Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100 service-card">
+                <div class="card-body">
+                    <i class="fas fa-user-md fa-3x mb-3" style="color: #a34691;"></i>
+                    <h5 class="card-title" style="color: #a34691;">Individual Therapy</h5>
+                    <p class="card-text text-muted">One-on-one sessions tailored to your mental health needs. Address issues like stress, anxiety, and depression with personalized support.</p>
+                </div>
+                <div class="card-footer bg-white">
+                    <a href="/book-therapy" class="btn btn-outline-primary w-100" style="border-color: #a34691; color: #a34691;">Book a Session</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Group Therapy Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100 service-card">
+                <div class="card-body">
+                    <i class="fas fa-users fa-3x mb-3" style="color: #a34691;"></i>
+                    <h5 class="card-title" style="color: #a34691;">Group Therapy</h5>
+                    <p class="card-text text-muted">Join a group of women with similar experiences. Share, learn, and heal in a supportive environment with guided sessions.</p>
+                </div>
+                <div class="card-footer bg-white">
+                    <a href="/book-group" class="btn btn-outline-primary w-100" style="border-color: #a34691; color: #a34691;">Join a Group</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Online Consultation Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100 service-card">
+                <div class="card-body">
+                    <i class="fas fa-video fa-3x mb-3" style="color: #a34691;"></i>
+                    <h5 class="card-title" style="color: #a34691;">Online Consultation</h5>
+                    <p class="card-text text-muted">Get access to mental health support from the comfort of your home with secure video or chat consultations.</p>
+                </div>
+                <div class="card-footer bg-white">
+                    <a href="/book-online" class="btn btn-outline-primary w-100" style="border-color: #a34691; color: #a34691;">Schedule Online</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How to Book Section -->
+    <div class="row mt-5">
+        <div class="col-md-12 text-center">
+            <h2 style="color: #a34691;"><i class="fas fa-calendar-alt"></i> How to Book a Consultation</h2>
+            <p class="text-muted">We make it easy to schedule a session with just a few simple steps:</p>
+        </div>
+    </div>
+
+    <div class="row text-center mt-4">
+        <!-- Step 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100 step-card">
+                <div class="card-body">
+                    <i class="fas fa-user-plus fa-2x mb-3" style="color: #a34691;"></i>
+                    <h5 class="card-title" style="color: #a34691;">Step 1: Register</h5>
+                    <p class="card-text text-muted">Sign up for an account to access our services. It’s free and secure.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100 step-card">
+                <div class="card-body">
+                    <i class="fas fa-book-open fa-2x mb-3" style="color: #a34691;"></i>
+                    <h5 class="card-title" style="color: #a34691;">Step 2: Choose Service</h5>
+                    <p class="card-text text-muted">Select the type of consultation you prefer: individual therapy, group therapy, or online consultation.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100 step-card">
+                <div class="card-body">
+                    <i class="fas fa-clock fa-2x mb-3" style="color: #a34691;"></i>
+                    <h5 class="card-title" style="color: #a34691;">Step 3: Schedule</h5>
+                    <p class="card-text text-muted">Pick a time that works for you and confirm your booking in just a few clicks.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="row mt-5">
+        <div class="col-md-12 text-center">
+            <a href="/register" class="btn btn-primary btn-lg" style="background-color: #a34691; border-color: #a34691;">Get Started Today</a>
+        </div>
+    </div>
+</div>
+
+<!-- Include Font Awesome for icons -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+<!-- Custom CSS -->
+<style>
+    /* Service card enhancements */
+    .service-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 10px;
+    }
+
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Step card enhancements */
+    .step-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 10px;
+        background-color: #fdf3f7;
+    }
+
+    .step-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Card title styling */
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    /* Button styling */
+    .btn-outline-primary:hover {
+        background-color: #a34691;
+        color: white;
+        border-color: #a34691;
+    }
+
+    .btn-primary {
+        padding: 10px 30px;
+    }
+</style>
+{% endblock %}

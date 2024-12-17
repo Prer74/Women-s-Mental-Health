@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container-fluid" style="height: 100vh; background-color: #fdf3f7;">
+    <div class="row h-100">
+        <!-- Left Section with Image Background Cover -->
+        <div class="col-md-6 d-none d-md-flex align-items-center justify-content-center" style="background-color: #fdf3f7;">
+            <div style="background-image: url('/static/images/login.jpg'); background-size: cover; background-position: center; width: 100%; height: 100%;">
+                <!-- Image will cover the entire box -->
+            </div>
+        </div>
+
+        <!-- Right Section with Form -->
+        <div class="col-md-6 d-flex align-items-center justify-content-center" style="background-color: #f8f9fa;">
+            <div class="card shadow-lg" style="width: 100%; max-width: 400px; padding: 2rem;">
+                <h2 class="text-center mb-4" style="color: #a34691;">Login</h2>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} text-center" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                
+                <form action="/login" method="POST" aria-label="Login Form">
+                    <div class="form-group mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="username-addon"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" name="username" id="username" aria-describedby="username-addon" placeholder="Enter your username" required>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="password-addon"><i class="fas fa-lock"></i></span>
+                            </div>
+                            <input type="password" class="form-control" name="password" id="password" aria-describedby="password-addon" placeholder="Enter your password" required>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="togglePassword"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 mt-3" style="background-color: #a34691; border-color: #a34691;">Login</button>
+                </form>
+
+                <div class="text-center mt-3">
+                    <p>Don't have an account? <a href="/register" style="color: #a34691;">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Toggle password visibility
+    const togglePassword = document.querySelector('#togglePassword');
+    const passwordField = document.querySelector('#password');
+    togglePassword.addEventListener('click', function (e) {
+        // Toggle the type attribute
+        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordField.setAttribute('type', type);
+        // Toggle the icon
+        this.querySelector('i').classList.toggle('fa-eye');
+        this.querySelector('i').classList.toggle('fa-eye-slash');
+    });
+</script>
+{% endblock %}

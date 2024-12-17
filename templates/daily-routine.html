@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Routine Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("/static/images/women-scaled.jpg");
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 50px; /* Increased padding */
+            border-radius: 10px;
+            max-width: 900px; /* Increased width */
+            margin: auto;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #34495e;
+            text-align: center;
+            font-size: 36px; /* Increased font size */
+            margin-bottom: 30px; /* Adjusted margin */
+        }
+
+        .input-group {
+            margin-bottom: 35px; /* Increased margin */
+            text-align: center;
+        }
+
+        .input-group label {
+            font-size: 24px; /* Increased font size */
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .slider {
+            width: 100%;
+            margin: 15px 0;
+        }
+
+        .icons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px; /* Increased margin */
+        }
+
+        .icon {
+            font-size: 48px; /* Increased emoji size */
+            cursor: pointer;
+        }
+
+        .selected {
+            color: #16a085;
+        }
+
+        .submit-btn {
+            background-color: #16a085;
+            color: #fff;
+            padding: 15px 30px; /* Adjusted padding */
+            font-size: 20px; /* Increased font size */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .submit-btn:hover {
+            background-color: #149174;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Your Daily Routine</h2>
+
+        <!-- Sleep Slider -->
+        <div class="input-group">
+            <label for="sleep-slider">Hours of Sleep:</label>
+            <input type="range" min="0" max="12" value="7" class="slider" id="sleep-slider">
+            <p><span id="sleep-output">7</span> hours</p>
+        </div>
+
+        <!-- Sleep Quality Icons -->
+        <div class="input-group">
+            <label for="sleep-quality">Sleep Quality:</label>
+            <div class="icons">
+                <span class="icon" id="good-sleep" onclick="selectSleepQuality('good')">🌙</span>
+                <span class="icon" id="fair-sleep" onclick="selectSleepQuality('fair')">🌥️</span>
+                <span class="icon" id="poor-sleep" onclick="selectSleepQuality('poor')">🌩️</span>
+            </div>
+        </div>
+
+        <!-- Work Hours Slider -->
+        <div class="input-group">
+            <label for="work-slider">Work/Study Hours:</label>
+            <input type="range" min="0" max="12" value="8" class="slider" id="work-slider">
+            <p><span id="work-output">8</span> hours</p>
+        </div>
+
+        <!-- Physical Activity Icons -->
+        <div class="input-group">
+            <label for="physical-activity">Physical Activities:</label>
+            <div class="icons">
+                <span class="icon" onclick="selectActivity('walk')">🚶</span>
+                <span class="icon" onclick="selectActivity('run')">🏃</span>
+                <span class="icon" onclick="selectActivity('gym')">🏋️</span>
+                <span class="icon" onclick="selectActivity('yoga')">🧘</span>
+                <span class="icon" onclick="selectActivity('no-exercise')">🚫🚶</span>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="input-group">
+            <button class="submit-btn">Submit Routine</button>
+        </div>
+
+    </div>
+
+    <script>
+        const sleepSlider = document.getElementById("sleep-slider");
+        const sleepOutput = document.getElementById("sleep-output");
+
+        sleepSlider.oninput = function() {
+            sleepOutput.innerHTML = this.value;
+        }
+
+        const workSlider = document.getElementById("work-slider");
+        const workOutput = document.getElementById("work-output");
+
+        workSlider.oninput = function() {
+            workOutput.innerHTML = this.value;
+        }
+
+        function selectSleepQuality(quality) {
+            document.querySelectorAll('.icon').forEach(el => el.classList.remove('selected'));
+            document.getElementById(`${quality}-sleep`).classList.add('selected');
+        }
+
+        function selectActivity(activity) {
+            alert("You selected " + activity);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block title %}Soothing Music{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-12 text-center mb-5">
+            <h1 class="display-4" style="color: #a34691;">
+                <i class="fas fa-music"></i> Soothing Music
+            </h1>
+            <p class="lead text-muted">Relax with our curated selection of soothing music. These tracks are designed to help you de-stress and find calm.</p>
+        </div>
+    </div>
+
+    <!-- Music Tracks Section -->
+    <div class="row">
+        <!-- Track 1: Soothing Piano -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100 music-card">
+                <img src="/static/images/piano.gif" class="card-img-top img-fluid" alt="Soothing Piano">
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="color: #a34691;">
+                        <i class="fas fa-music"></i> Soothing Piano
+                    </h5>
+                    <p class="card-text text-muted">Relaxing piano music for a calm and peaceful mind.</p>
+                    <audio controls class="w-100 audio-control">
+                        <source src="/static/audio/Instrumental Music Piano.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </div>
+
+        <!-- Track 2: Nature Sounds -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100 music-card">
+                <img src="/static/images/nature.gif" class="card-img-top img-fluid" alt="Nature Sounds">
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="color: #a34691;">
+                        <i class="fas fa-tree"></i> Nature Sounds
+                    </h5>
+                    <p class="card-text text-muted">Calming sounds of nature to bring you peace and tranquility.</p>
+                    <audio controls class="w-100 audio-control">
+                        <source src="/static/audio/Soulful Flute.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </div>
+
+        <!-- Track 3: Meditation Music -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100 music-card">
+                <img src="/static/images/meditation.gif" class="card-img-top img-fluid" alt="Meditation Music">
+                <div class="card-body text-center">
+                    <h5 class="card-title" style="color: #a34691;">
+                        <i class="fas fa-spa"></i> Meditation Music
+                    </h5>
+                    <p class="card-text text-muted">Music for deep meditation and mental clarity.</p>
+                    <audio controls class="w-100 audio-control">
+                        <source src="/static/audio/Meditation relaxation Calming.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add more tracks as needed -->
+</div>
+
+<!-- Include Font Awesome from the official CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha384-rOA8B0Ef3H1aLlm5WCkWtucgrxZjRIp2DSkB9kLw5tb5gUJw1r38zQe6c3eOT9Ig" crossorigin="anonymous"></script>
+
+<style>
+    /* Enhanced styles for the cards and audio controls */
+    .music-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .music-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .audio-control {
+        background-color: #fdf3f7;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    /* Icon styles */
+    .fas {
+        margin-right: 8px;
+        color: #a34691;
+    }
+
+    /* Ensuring GIFs fit properly and maintain aspect ratio */
+    .img-fluid {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+</style>
+{% endblock %}

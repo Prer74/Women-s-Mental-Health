@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block title %}Women's Mental Health Hub{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <!-- Header Section -->
+    <div class="row text-center">
+        <div class="col-md-12">
+            <h1 class="display-4" style="color: #a34691;">Welcome to Women's Mental Health Hub</h1>
+            <p class="lead text-muted">Your safe space for emotional well-being and mental health resources.</p>
+        </div>
+    </div>
+
+    <!-- Daily Quotes Section -->
+    <section id="quotes" class="quotes-section my-5 text-center">
+        <h2 class="mb-3" style="color: #a34691;">Daily Quotes</h2>
+        <div class="quote-display p-4" style="background-color: #ffe4e1; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+            <p id="quote" class="lead"></p>
+        </div>
+    </section>
+
+    <!-- Interactive Sections -->
+    <div class="row mt-5 text-center">
+        <!-- Journaling & Mindfulness -->
+        <div class="col-md-4 mb-4">
+            <a href="/journaling" class="interactive-section h-100">
+                <div class="icon journaling-icon">📝</div>
+                <h2>Journaling & Mindfulness</h2>
+            </a>
+        </div>
+
+        <!-- Personalized Recommendations -->
+        <div class="col-md-4 mb-4">
+            <a href="/age" class="interactive-section text-center p-4 shadow-sm rounded">
+                <div class="icon mb-2" style="font-size: 60px;">💡</div>
+                <h2>Personalized Recommendations</h2>
+            </a>
+        </div>
+
+        <!-- Community Support -->
+        <div class="col-md-4 mb-4">
+            <a href="/community" class="interactive-section h-100">
+                <div class="icon community-icon">🤝</div>
+                <h2>Community Support</h2>
+            </a>
+        </div>
+    </div>
+
+    <div class="row mt-3 text-center">
+        <!-- Music Therapy -->
+        <div class="col-md-6 mb-4">
+            <a href="/music" class="interactive-section h-100">
+                <div class="icon music-icon">🎶</div>
+                <h2>Music Therapy</h2>
+            </a>
+        </div>
+
+        <!-- Exercise & Movement -->
+        <div class="col-md-6 mb-4">
+            <a href="/exercise" class="interactive-section h-100">
+                <div class="icon exercise-icon">🏋️‍♀️</div>
+                <h2>Exercise & Movement</h2>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Script for Quotes -->
+<script>
+    const quotes = [
+        "Believe you can and you're halfway there. - Theodore Roosevelt",
+        "You are enough just as you are. - Bridget Jones's Diary",
+        "The most courageous act is still to think for yourself. Aloud. - Coco Chanel",
+        "Your present circumstances don't determine where you can go; they merely determine where you start. - Nido Qubein",
+        "What lies behind us and what lies before us are tiny matters compared to what lies within us. - Ralph Waldo Emerson"
+    ];
+
+    function displayQuote() {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        document.getElementById('quote').innerText = quotes[randomIndex];
+    }
+
+    window.onload = displayQuote;
+</script>
+
+<style>
+    /* Interactive Section Styling */
+    .interactive-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        border-radius: 15px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s, box-shadow 0.2s;
+        text-align: center;
+        text-decoration: none;
+        color: inherit;
+        height: 100%;
+    }
+
+    .interactive-section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .icon {
+        font-size: 60px;
+        margin-bottom: 10px;
+        transition: transform 0.2s;
+    }
+
+    .icon:hover {
+        transform: scale(1.1);
+    }
+
+    /* Quotes Section Styling */
+    .quote-display {
+        background-color: #ffe4e1;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+</style>
+{% endblock %}

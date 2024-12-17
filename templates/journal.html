@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Journal Sentiment Analysis{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-5">
+    <div class="row g-4">
+        <!-- Left Section (Image Area) -->
+        <div class="col-md-6 d-none d-md-block" style="background: url('/static/images/journal_entry.jpg') no-repeat center center; background-size: cover; height: 80vh;">
+        </div>
+
+        <!-- Right Section (Form Area) -->
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+            <div class="form-box p-4 shadow-lg" style="background-color: #ffffff; border-radius: 10px; max-width: 500px; width: 100%;">
+                <h1 class="text-center mb-4" style="color: #a34691;">Journal Sentiment Analysis</h1>
+                
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} text-center" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                
+                <form action="/predict" method="POST" class="mb-4">
+                    <div class="mb-3">
+                        <textarea name="journal_entry" class="form-control" rows="5" placeholder="Write your journal entry here..." style="border-radius: 10px;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 py-2" style="background-color: #a34691; border-color: #a34691; border-radius: 5px;">Analyze Sentiment</button>
+                </form>
+
+                {% if show_weekly_report %}
+                    <div class="mt-4">
+                        <a href="/weekly_report" class="btn btn-secondary w-100 py-2" style="border-radius: 5px;">View Weekly Report</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

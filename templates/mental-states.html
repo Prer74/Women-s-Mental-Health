@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental States</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            color: #34495e;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        .state-box {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .mental-state {
+            width: 30%;
+            background-color: #fff;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .mental-state:hover {
+            transform: scale(1.05);
+        }
+
+        .mental-state img {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 15px;
+            border-radius: 50%;
+        }
+
+        .mental-state h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #16a085;
+        }
+
+        .mental-state p {
+            font-size: 16px;
+            color: #2c3e50;
+        }
+
+        footer {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            color: #2c3e50;
+            font-size: 16px;
+            margin-top: auto;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Mental States</h1>
+
+        <div class="state-box">
+            <div class="mental-state"  onclick="location.href='/questionnaire/Relationship_and_Family.html';" style="cursor:pointer;">
+                <img src="/static/images/relationship.png" alt="Relationship and Family"> 
+                <h2>Relationship and Family</h2>
+                <p>- Conflict with loved ones<br>
+                   - Lack of support<br>
+                   - Difficulty in communication
+                </p>
+            </div>
+
+            <div class="mental-state" onclick="location.href='/questionnaire/body_image.html';" style="cursor: pointer;">
+                <img src="/static/images/body-image.png" alt="Body Image">
+                <h2>Body Image</h2>
+                <p>- Negative self-perception<br>
+                   - Obsessive body-checking<br>
+                   - Avoiding mirrors
+                </p>
+            </div>
+
+            <div class="mental-state"  onclick="location.href='/questionnaire/eating_disorder.html';" style="cursor:pointer;">
+                <img src="/static/images/eating.png" alt="Eating Disorder">
+                <h2>Eating Disorder</h2>
+                <p>- Irregular eating habits<br>
+                   - Preoccupation with weight<br>
+                   - Guilt after eating
+                </p>
+            </div>
+
+            <div class="mental-state" onclick="location.href='/questionnaire/sexual_and_reproductive_health.html';" style="cursor:pointer;">
+                <img src="/static/images/sexual_health.jpg" alt="Sexual and Reproductive Health">
+                <h2>Sexual and Reproductive Health</h2>
+                <p>- Irregular menstrual cycles<br>
+                   - Sexual discomfort<br>
+                   - Lack of sexual desire
+                </p>
+            </div>
+
+            <div class="mental-state" onclick="location.href='/questionnaire/Academic_pressure.html';" style="cursor:pointer;">
+                <img src="/static/images/stress.png" alt="Academic Pressure">
+                <h2>Academic Pressure</h2>
+                <p>- Constant worry<br>
+                   - Fatigue<br>
+                   - Irritability
+                </p>
+            </div>
+
+            <div class="mental-state" onclick="location.href='/questionnaire/Anxiety.html';" style="cursor: pointer;">
+                <img src="/static/images/anxiety.png" alt="Anxiety">
+                <h2>Anxiety</h2>
+                <p>- Excessive fear<br>
+                   - Restlessness<br>
+                   - Trouble sleeping
+                </p>
+            </div>
+
+            <div class="mental-state" onclick="location.href='/questionnaire/depression_issues.html';" style="cursor:pointer;">
+                <img src="/static/images/depression.png" alt="Depression">
+                <h2>Depression</h2>
+                <p>- Persistent sadness<br>
+                   - Loss of interest<br>
+                   - Feelings of worthlessness
+                </p>
+            </div>
+
+            <div class="mental-state" onclick="location.href='/questionnaire/hormonal_changes.html';" style="cursor:pointer;">
+                <img src="/static/images/hormonal_changes.png" alt="Hormonal Changes">
+                <h2>Hormonal Changes</h2>
+                <p>- Mood swings<br>
+                   - Emotional instability<br>
+                   - Irregular cycles
+                </p>
+            </div>
+
+            <div class="mental-state" onclick="location.href='/questionnaire/family_dynamics.html';" style="cursor:pointer;">
+                <img src="/static/images/family_dynamics.png" alt="Family Dynamics">
+                <h2>Family Dynamics</h2>
+                <p>- Persistent sadness<br>
+                   - Loss of interest<br>
+                   - Feelings of worthlessness
+                </p>
+            </div>
+
+            <div class="mental-state" onclick="location.href='/questionnaire/suicidal_thoughts.html';" style="cursor:pointer;">
+                <img src="/static/images/suicide.png" alt="Suicidal Thoughts">
+                <h2>Suicidal Thoughts</h2>
+                <p>- Persistent sadness<br>
+                   - Loss of interest<br>
+                   - Feelings of worthlessness
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Contact Us: example@example.com | Phone: 123-456-7890</p>
+    </footer>
+
+</body>
+</html>
