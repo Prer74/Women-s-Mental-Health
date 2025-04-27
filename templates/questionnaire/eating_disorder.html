@@ -10,82 +10,123 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+    
         html, body {
             height: 100%;
-            font-family: Arial, sans-serif;
+            font-family: 'Open Sans', sans-serif;
         }
-
+    
         body {
-            background-image: url('women-scaled.jpg'); /* Background image */
+            background-image: url('women-scaled.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             display: flex;
             flex-direction: column;
             color: #34495e;
+            animation: fadeInBody 1.2s ease-in;
         }
-
+    
+        @keyframes fadeInBody {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    
         h1 {
             margin-bottom: 30px;
+            color: #8e44ad;
+            font-size: 2.5rem;
+            animation: popIn 0.8s ease-in-out;
         }
-
+    
+        @keyframes popIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    
         .container {
-            max-width: 1200px; 
+            max-width: 900px;
             margin: auto;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             text-align: center;
             margin-top: 50px;
+            transition: all 0.3s ease;
         }
-        
+    
+        .container:hover {
+            transform: scale(1.01);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+    
         .questions {
-            margin-bottom: 20px;
-        }
-
-        .questions select {
-            width: 100%; /* Make the select box take full width if needed */
-            padding: 8px;
-        }
-
-        .questions label {
-            display: block;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             text-align: left;
+            animation: fadeIn 0.8s ease;
         }
+    
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    
+       .questions label {
+    display: block;
+    margin-bottom: 10px; /* Space below the question text */
+    text-align: left;
+}
 
-        .next-button {
-            padding: 15px 30px; /* Increased padding */
-            font-size: 18px; /* Increased font size */
-            font-weight: bold;
-            background-color: #27ae60; /* Cute color for button */
-            color: #34495e; /* Text color */
-            border-radius: 20px; /* Rounded corners */
+.questions select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px; /* Extra space after the dropdown */
+}
+
+        .questions select:focus {
+            border-color: #8e44ad;
+            outline: none;
+        }
+    
+        .next-btn {
+            margin-top: 30px;
+            background: linear-gradient(to right, #8e44ad, #c490c8);
+            color: white;
+            padding: 14px 30px;
+            font-size: 18px;
+            border-radius: 30px;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            cursor: not-allowed;
             border: none;
-            cursor: not-allowed; /* Default cursor style */
-            text-decoration: none; /* Remove underline from link */
-            transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
-            display: inline-block; /* Make it behave like a button */
         }
-
-        .next-button.active {
-            cursor: pointer; /* Change cursor when button is active */
+    
+        .next-btn.active {
+            cursor: pointer;
         }
-
-        .next-button:hover.active {
-            background-color: #219653; /* Lighter color on hover */
-            transform: translateY(-2px); /* Slight lift effect */
+    
+        .next-btn:hover.active {
+            transform: scale(1.05);
+            box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(to right, #9b59b6, #2ecc71);
         }
-
+    
+        .next-btn:active {
+            transform: scale(0.98);
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Eating Disorder Assessment</h1>
+        <h1>Eating Disorder</h1>
+        <form method="POST" action="{{ url_for('handle_questionnaire', topic='eating_disorder') }}" onsubmit="return checkIfAnswersComplete()">
         <div class="questions">
-            <label for="q1"><b>1. Have you ever found yourself controlling or restricting what you eat in order to change your body shape or weight?</b></label>
-            <select id="q1" name="ans1" onchange="checkAnswers()">
+            <label for="Q1"><b>1. Have you ever found yourself controlling or restricting what you eat in order to change your body shape or weight?</b></label>
+            <select id="Q1" name="Q1" onchange="checkAnswers()">
                 <option value="" disabled selected>Select</option>
                 <option value="High">High</option>
                 <option value="Medium">Medium</option>
@@ -94,8 +135,8 @@
         </div><br>
 
         <div class="questions">
-            <label for="q2"><b>2. Do you find yourself eating in secret or avoiding eating in social situations?</b></label>
-            <select id="q2" name="ans2" onchange="checkAnswers()">
+            <label for="Q2"><b>2. Do you find yourself eating in secret or avoiding eating in social situations?</b></label>
+            <select id="Q2" name="Q2" onchange="checkAnswers()">
                 <option value="" disabled selected>Select</option>
                 <option value="High">High</option>
                 <option value="Medium">Medium</option>
@@ -104,8 +145,8 @@
         </div><br>
 
         <div class="questions">
-            <label for="q3"><b>3. Have you noticed significant changes in your weight over the past year?</b></label>
-            <select id="q3" name="ans3" onchange="checkAnswers()">
+            <label for="Q3"><b>3. Have you noticed significant changes in your weight over the past year?</b></label>
+            <select id="Q3" name="Q3" onchange="checkAnswers()">
                 <option value="" disabled selected>Select</option>
                 <option value="High">High</option>
                 <option value="Medium">Medium</option>
@@ -114,8 +155,8 @@
         </div><br>
 
         <div class="questions">
-            <label for="q4"><b>4. Do you often feel anxious or guilty about food or eating?</b></label>
-            <select id="q4" name="ans4" onchange="checkAnswers()">
+            <label for="Q4"><b>4. Do you often feel anxious or guilty about food or eating?</b></label>
+            <select id="Q4" name="Q4" onchange="checkAnswers()">
                 <option value="" disabled selected>Select</option>
                 <option value="High">High</option>
                 <option value="Medium">Medium</option>
@@ -123,17 +164,17 @@
             </select>       
         </div><br>
 
-        <!-- Next Button -->
-        <a href="daily-routine.html" class="next-button" id="nextButton" onclick="return checkIfAnswersComplete()">Next ➔</a> <!-- Replace with your actual link -->
-    </div>
+        <button type="submit" class="next-btn" id="nextButton">Next</button>
+     </form> 
+   </div>
 
     <script>
         function checkAnswers() {
             const questions = [
-                document.getElementById('q1'),
-                document.getElementById('q2'),
-                document.getElementById('q3'),
-                document.getElementById('q4')
+                document.getElementById('Q1'),
+                document.getElementById('Q2'),
+                document.getElementById('Q3'),
+                document.getElementById('Q4')
             ];
 
             const allAnswered = questions.every(select => select.value !== "");

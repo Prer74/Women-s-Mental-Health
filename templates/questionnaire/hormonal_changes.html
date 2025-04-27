@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hormonal Changes Issues Assessment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        html, body {
+            height: 100%;
+            font-family: 'Open Sans', sans-serif;
+        }
+    
+        body {
+            background-image: url('women-scaled.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            color: #34495e;
+            animation: fadeInBody 1.2s ease-in;
+        }
+    
+        @keyframes fadeInBody {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    
+        h1 {
+            margin-bottom: 30px;
+            color: #8e44ad;
+            font-size: 2.5rem;
+            animation: popIn 0.8s ease-in-out;
+        }
+    
+        @keyframes popIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            margin-top: 50px;
+            transition: all 0.3s ease;
+        }
+    
+        .container:hover {
+            transform: scale(1.01);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+    
+        .questions {
+            margin-bottom: 25px;
+            text-align: left;
+            animation: fadeIn 0.8s ease;
+        }
+    
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    
+       .questions label {
+    display: block;
+    margin-bottom: 10px; /* Space below the question text */
+    text-align: left;
+}
+
+.questions select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px; /* Extra space after the dropdown */
+}
+
+        .questions select:focus {
+            border-color: #8e44ad;
+            outline: none;
+        }
+    
+        .next-btn {
+            margin-top: 30px;
+            background: linear-gradient(to right, #8e44ad, #c490c8);
+            color: white;
+            padding: 14px 30px;
+            font-size: 18px;
+            border-radius: 30px;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            cursor: not-allowed;
+            border: none;
+        }
+    
+        .next-btn.active {
+            cursor: pointer;
+        }
+    
+        .next-btn:hover.active {
+            transform: scale(1.05);
+            box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(to right, #9b59b6, #2ecc71);
+        }
+    
+        .next-btn:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hormonal Changes</h1>
+        <form  method="POST" action="{{ url_for('handle_questionnaire', topic='hormonal_changes') }}" onsubmit="return checkIfAnswersComplete()">
+        <div class="questions">
+            <label for="Q1"><b>1. How often do hormonal changes affect your mood?</b></label>
+            <select id="Q1" name="Q1" onchange="checkAnswers()">
+                <option value="" disabled selected>Select</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>    
+            </select>       
+        </div><br>
+        <div class="questions">
+            <label for="Q2"><b>2. How frequently do you experience physical symptoms (like cramps or headaches) related to hormonal changes?</b></label>
+            <select id="Q2" name="Q2" onchange="checkAnswers()">
+                <option value="" disabled selected>Select</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>    
+            </select>       
+        </div><br>
+        <div class="questions">
+            <label for="Q3"><b>3. How often do you feel fatigued due to hormonal fluctuations?</b></label>
+            <select id="Q3" name="Q3" onchange="checkAnswers()">
+                <option value="" disabled selected>Select</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>    
+            </select>       
+        </div><br>
+        <div class="questions">
+            <label for="Q4"><b>4. How significant are the emotional changes you experience during hormonal shifts?</b></label>
+            <select id="Q4" name="Q4" onchange="checkAnswers()">
+                <option value="" disabled selected>Select</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>    
+            </select>       
+        </div><br>
+        <div class="questions">
+            <label for="Q5"><b>5. How often do you feel irritable due to hormonal changes?</b></label>
+            <select id="Q5" name="Q5" onchange="checkAnswers()">
+                <option value="" disabled selected>Select</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>    
+            </select>       
+        </div><br>
+        <div class="questions">
+            <label for="Q6"><b>6. How often do you discuss hormonal changes with friends or family?</b></label>
+            <select id="Q6" name="Q6" onchange="checkAnswers()">
+                <option value="" disabled selected>Select</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>    
+            </select>       
+        </div><br>
+        <div class="questions">
+            <label for="Q7"><b>7. How frequently do you feel overwhelmed by physical symptoms related to hormonal changes?</b></label>
+            <select id="Q7" name="Q7" onchange="checkAnswers()">
+                <option value="" disabled selected>Select</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>    
+            </select>       
+        </div><br>
+        <button type="submit" class="next-btn" id="nextButton">Next</button> 
+    </form>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const questions = [
+                document.getElementById('Q1'),
+                document.getElementById('Q2'),
+                document.getElementById('Q3'),
+                document.getElementById('Q4'),
+                document.getElementById('Q5'),
+                document.getElementById('Q6'),
+                document.getElementById('Q7')
+            ];
+
+            const allAnswered = questions.every(select => select.value !== "");
+            const nextButton = document.getElementById('nextButton');
+
+            if (allAnswered) {
+                nextButton.classList.add('active');
+                nextButton.style.cursor = 'pointer'; // Change cursor style
+            } else {
+                nextButton.classList.remove('active');
+                nextButton.style.cursor = 'not-allowed'; // Change cursor style
+            }
+        }
+
+        function checkIfAnswersComplete() {
+            const nextButton = document.getElementById('nextButton');
+            if (!nextButton.classList.contains('active')) {
+                alert("Please answer all questions before proceeding.");
+                return false; // Prevent navigation
+            }
+            return true; // Allow navigation
+        }
+    </script>
+</body>
+</html>

@@ -7,63 +7,104 @@
     <!-- Header Section -->
     <div class="row text-center">
         <div class="col-md-12">
-            <h1 class="display-4" style="color: #a34691;">Welcome to Women's Mental Health Hub</h1>
-            <p class="lead text-muted">Your safe space for emotional well-being and mental health resources.</p>
+            <h1 class="display-4" style="color: #a846a0; font-weight: 600;">Welcome to Women's Mental Health Hub</h1>
+            <p class="lead" style="color: #666; font-weight: 400;">Your safe space for emotional well-being and mental health resources.</p>
         </div>
     </div>
 
     <!-- Daily Quotes Section -->
     <section id="quotes" class="quotes-section my-5 text-center">
-        <h2 class="mb-3" style="color: #a34691;">Daily Quotes</h2>
-        <div class="quote-display p-4" style="background-color: #ffe4e1; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-            <p id="quote" class="lead"></p>
+        <h2 class="mb-4" style="color: #a846a0; font-weight: 600; font-size: 2rem;">Daily Quotes</h2>
+        <div class="quote-display p-4" style="background: linear-gradient(135deg, #fce4f3, #ffebf8); border-radius: 20px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);">
+            <p id="quote" class="lead" style="font-style: italic; font-size: 1.4rem; color: #444; animation: fadeIn 1s;"></p>
         </div>
     </section>
 
     <!-- Interactive Sections -->
     <div class="row mt-5 text-center">
         <!-- Journaling & Mindfulness -->
-        <div class="col-md-4 mb-4">
-            <a href="/journaling" class="interactive-section h-100">
-                <div class="icon journaling-icon">📝</div>
-                <h2>Journaling & Mindfulness</h2>
+        <div class="col-md-6 mb-4">
+            <a href="/journaling" class="interactive-section" id="journal-link">
+                <div class="icon journaling-icon" style="font-size: 70px; animation: bounce 1s infinite;">📝</div>
+                <h2 class="interactive-title" style="font-weight: 500; font-size: 1.2rem;">Journaling & Mindfulness</h2>
             </a>
         </div>
 
         <!-- Personalized Recommendations -->
-        <div class="col-md-4 mb-4">
-            <a href="/age" class="interactive-section text-center p-4 shadow-sm rounded">
-                <div class="icon mb-2" style="font-size: 60px;">💡</div>
-                <h2>Personalized Recommendations</h2>
+        <div class="col-md-6 mb-4">
+            <a href="/age" class="interactive-section">
+                <div class="icon" style="font-size: 70px; animation: bounce 1.2s infinite;">💡</div>
+                <h2 class="interactive-title" style="font-weight: 500; font-size: 1.2rem;">Personalized Recommendations</h2>
             </a>
         </div>
 
         <!-- Community Support -->
-        <div class="col-md-4 mb-4">
-            <a href="/community" class="interactive-section h-100">
-                <div class="icon community-icon">🤝</div>
-                <h2>Community Support</h2>
-            </a>
-        </div>
+        
     </div>
 
     <div class="row mt-3 text-center">
         <!-- Music Therapy -->
         <div class="col-md-6 mb-4">
-            <a href="/music" class="interactive-section h-100">
-                <div class="icon music-icon">🎶</div>
-                <h2>Music Therapy</h2>
+            <a href="/music" class="interactive-section">
+                <div class="icon music-icon" style="font-size: 70px; animation: bounce 1.6s infinite;">🎶</div>
+                <h2 class="interactive-title" style="font-weight: 500; font-size: 1.2rem;">Music Therapy</h2>
             </a>
         </div>
 
-        <!-- Exercise & Movement -->
         <div class="col-md-6 mb-4">
-            <a href="/exercise" class="interactive-section h-100">
-                <div class="icon exercise-icon">🏋️‍♀️</div>
-                <h2>Exercise & Movement</h2>
+            <a href="/community" class="interactive-section">
+                <div class="icon community-icon" style="font-size: 70px; animation: bounce 1.4s infinite;">🤝</div>
+                <h2 class="interactive-title" style="font-weight: 500; font-size: 1.2rem;">Community Support</h2>
             </a>
         </div>
+        <!-- Exercise & Movement -->
+        <!-- <div class="col-md-6 mb-4">
+            <a href="/exercise" class="interactive-section">
+                <div class="icon exercise-icon" style="font-size: 70px; animation: bounce 1.8s infinite;">🏋️‍♀️</div>
+                <h2 class="interactive-title" style="font-weight: 500; font-size: 1.2rem;">Exercise & Movement</h2>
+            </a>
+        </div> -->
     </div>
+
+    <!-- Resource Links Section -->
+<section id="resources" class="my-5">
+    <h2 class="text-center mb-4" style="color: #a846a0; font-weight: 600; font-size: 2rem;">Helpful Resources</h2>
+    <div class="d-flex justify-content-center">
+        <div class="col-md-4 mx-2">
+            <a href="/articles" class="btn btn-light mb-2" style="width: 100%;">Mental Health Resources</a>
+        </div>
+        <div class="col-md-4 mx-2">
+            <a href="/consultation" class="btn btn-light mb-2" style="width: 100%;">Find a Therapist</a>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="my-5">
+        <h2 class="text-center mb-4" style="color: #a846a0; font-weight: 600; font-size: 2rem;">Contact Us</h2>
+        <div class="row text-center">
+            <div class="col-md-12">
+                <p>If you need immediate help or have questions, feel free to reach out to us via email at <a href="mailto:support@mentalhealthhub.com" style="color: #a846a0;">support@mentalhealthhub.com</a></p>
+            </div>
+        </div>
+    </section>
+    <div id="consentModal" class="modal" style="display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
+        <div class="modal-content" style="background-color: #fff; margin: 10% auto; padding: 20px; border: 1px solid #888; width: 50%; border-radius: 10px;">
+            <h2>User Consent for Journal Entries</h2>
+            <p>By submitting your journal entries, you agree that:</p>
+            <ul><li>Your entries may be analyzed for sentiment to provide personalized insights.</li>
+                <li>The data may be used for consultation purposes to enhance your experience.</li>
+                <li>Your information will be handled with confidentiality and used only for the stated purposes.</li>
+            </ul>
+            <label>
+                <input type="checkbox" id="consentCheckbox"> I agree to the terms and consent to the use of my journal entries.
+            </label>
+            <br><br>
+            <button id="consentBtn" style="background-color: #a846a0; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Proceed</button>
+        </div>
+    </div>
 </div>
 
 <!-- Custom Script for Quotes -->
@@ -73,7 +114,17 @@
         "You are enough just as you are. - Bridget Jones's Diary",
         "The most courageous act is still to think for yourself. Aloud. - Coco Chanel",
         "Your present circumstances don't determine where you can go; they merely determine where you start. - Nido Qubein",
-        "What lies behind us and what lies before us are tiny matters compared to what lies within us. - Ralph Waldo Emerson"
+        "What lies behind us and what lies before us are tiny matters compared to what lies within us. - Ralph Waldo Emerson",
+        "You don’t have to control your thoughts. You just have to stop letting them control you. - Dan Millman",
+"Happiness can be found even in the darkest of times, if one only remembers to turn on the light. - Albus Dumbledore (J.K. Rowling)",
+"You, yourself, as much as anybody in the entire universe, deserve your love and affection. - Buddha",
+"Out of suffering have emerged the strongest souls; the most massive characters are seared with scars. - Khalil Gibran",
+"Healing takes time, and asking for help is a courageous step. - Mariska Hargitay",
+"Sometimes the people around you won’t understand your journey. They don’t need to, it’s not for them. - Joubert Botha",
+"There is hope, even when your brain tells you there isn’t. - John Green",
+"Feelings are much like waves, we can't stop them from coming but we can choose which one to surf. - Jonatan Mårtensson",
+"You are not broken. You are breaking through. - Alex Myles"
+
     ];
 
     function displayQuote() {
@@ -82,49 +133,105 @@
     }
 
     window.onload = displayQuote;
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const journalLink = document.getElementById("journal-link");
+        const modal = document.getElementById("consentModal");
+        const consentBtn = document.getElementById("consentBtn");
+        const consentCheckbox = document.getElementById("consentCheckbox");
+
+        if (journalLink) {
+            journalLink.addEventListener("click", function (event) {
+                event.preventDefault(); // Prevents default navigation
+                modal.style.display = "block";
+            });
+        }
+
+        consentBtn.addEventListener("click", function () {
+            if (consentCheckbox.checked) {
+                window.location.href = "/journal";
+            } else {
+                alert("Please agree to the terms before proceeding.");
+            }
+        });
+    });
+
 </script>
 
 <style>
+    /* Smooth Fade-In Animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Bounce Animation for Icons */
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
     /* Interactive Section Styling */
     .interactive-section {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 30px;
-        border-radius: 15px;
-        background-color: #ffffff;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        transition: transform 0.2s, box-shadow 0.2s;
-        text-align: center;
+        padding: 30px; /* Keep the original padding */
+        border-radius: 20px;
+        background: linear-gradient(135deg, #ffffff, #f8f9fa);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
         text-decoration: none;
         color: inherit;
         height: 100%;
     }
 
     .interactive-section:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        transform: translateY(-10px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(135deg, #fce4f3, #f8f9fa);
+    }
+
+    .interactive-title {
+        font-size: 3rem; /* Increased font size */
+        color: #444;
+        margin-top: 15px;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+
+    .interactive-section:hover .interactive-title {
+        color: #a846a0;
     }
 
     .icon {
-        font-size: 60px;
-        margin-bottom: 10px;
-        transition: transform 0.2s;
+        color: #a846a0;
+        font-size: 90px; /* Increased icon size */
+        transition: transform 0.3s ease;
     }
 
     .icon:hover {
-        transform: scale(1.1);
+        transform: scale(1.2);
     }
 
-    /* Quotes Section Styling */
-    .quote-display {
-        background-color: #ffe4e1;
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        max-width: 600px;
-        margin: 0 auto;
-    }
+
+
+
+
+
 </style>
+
+
+
 {% endblock %}

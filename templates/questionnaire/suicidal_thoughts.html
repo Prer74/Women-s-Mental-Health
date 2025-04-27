@@ -90,9 +90,10 @@
 <body>
     <div class="container">
         <h1>Suicidal Thoughts</h1>
+        <form  method="POST" action="{{ url_for('handle_questionnaire', topic='suicidal_thoughts') }}" onsubmit="return checkIfAnswersComplete()">
         <div class="questions">
-            <label for="q1"><b>1. How often do you feel hopeless about the future?</b></label>
-            <select id="q1" name="ans1" onchange="checkAnswers()">
+            <label for="Q1"><b>1. How often do you feel hopeless about the future?</b></label>
+            <select id="Q1" name="Q1" onchange="checkAnswers()">
                 <option value="" disabled selected>Select</option>
                 <option value="High">High</option>
                 <option value="Medium">Medium</option>
@@ -100,8 +101,8 @@
             </select>       
         </div><br>
         <div class="questions">
-            <label for="q2"><b>2. In the past month, have you thought about ending your life?</b></label>
-            <select id="q2" name="ans2" onchange="checkAnswers()">
+            <label for="Q2"><b>2. In the past month, have you thought about ending your life?</b></label>
+            <select id="Q2" name="Q2" onchange="checkAnswers()">
                 <option value="" disabled selected>Select</option>
                 <option value="High">High</option>
                 <option value="Medium">Medium</option>
@@ -109,8 +110,8 @@
             </select>       
         </div><br>
         <div class="questions">
-            <label for="q3"><b>3. How often do you feel that others would be better off without you?</b></label>
-            <select id="q3" name="ans3" onchange="checkAnswers()">
+            <label for="Q3"><b>3. How often do you feel that others would be better off without you?</b></label>
+            <select id="Q3" name="Q3" onchange="checkAnswers()">
                 <option value="" disabled selected>Select</option>
                 <option value="High">High</option>
                 <option value="Medium">Medium</option>
@@ -118,8 +119,8 @@
             </select>       
         </div><br>
         <div class="questions">
-            <label for="q4"><b>4. Do you have a plan for how you would end your life?</b></label>
-            <select id="q4" name="ans4" onchange="checkAnswers()">
+            <label for="Q4"><b>4. Do you have a plan for how you would end your life?</b></label>
+            <select id="Q4" name="Q4" onchange="checkAnswers()">
                 <option value="" disabled selected>Select</option>
                 <option value="High">High</option>
                 <option value="Medium">Medium</option>
@@ -127,8 +128,8 @@
             </select>       
         </div><br>
         <div class="questions">
-            <label for="q5"><b>5. How often do you feel trapped by your circumstances?</b></label>
-            <select id="q5" name="ans5" onchange="checkAnswers()">
+            <label for="Q5"><b>5. How often do you feel trapped by your circumstances?</b></label>
+            <select id="Q5" name="Q5" onchange="checkAnswers()">
                 <option value="" disabled selected>Select</option>
                 <option value="High">High</option>
                 <option value="Medium">Medium</option>
@@ -136,8 +137,8 @@
             </select>       
         </div><br>
         <div class="questions">
-            <label for="q6"><b>6. How often do you discuss feelings of despair with someone?</b></label>
-            <select id="q6" name="ans6" onchange="checkAnswers()">
+            <label for="Q6"><b>6. How often do you discuss feelings of despair with someone?</b></label>
+            <select id="Q6" name="Q6" onchange="checkAnswers()">
                 <option value="" disabled selected>Select</option>
                 <option value="High">High</option>
                 <option value="Medium">Medium</option>
@@ -145,28 +146,28 @@
             </select>       
         </div><br>
         <div class="questions">
-            <label for="q7"><b>7. How often do you feel that life has no meaning?</b></label>
-            <select id="q7" name="ans7" onchange="checkAnswers()">
+            <label for="Q7"><b>7. How often do you feel that life has no meaning?</b></label>
+            <select id="Q7" name="Q7" onchange="checkAnswers()">
                 <option value="" disabled selected>Select</option>
                 <option value="High">High</option>
                 <option value="Medium">Medium</option>
                 <option value="Low">Low</option>    
             </select>       
         </div><br>
-
-        <a href="daily-routine.html" class="next-btn" id="nextButton" onclick="return checkIfAnswersComplete()">Next</a> <!-- Link to the next page -->
+        <button type="submit" class="next-btn" id="nextButton">Next</button> 
+      </form>
     </div>
 
     <script>
         function checkAnswers() {
             const questions = [
-                document.getElementById('q1'),
-                document.getElementById('q2'),
-                document.getElementById('q3'),
-                document.getElementById('q4'),
-                document.getElementById('q5'),
-                document.getElementById('q6'),
-                document.getElementById('q7')
+                document.getElementById('Q1'),
+                document.getElementById('Q2'),
+                document.getElementById('Q3'),
+                document.getElementById('Q4'),
+                document.getElementById('Q5'),
+                document.getElementById('Q6'),
+                document.getElementById('Q7')
             ];
 
             const allAnswered = questions.every(select => select.value !== "");

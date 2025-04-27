@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block title %}Soothing Music{% endblock %}
+
+{% block content %}
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Science and Emotion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      color: #1a1a1a;
+      background-color: #ffffff;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px 10px;
+      font-size: 3rem;
+      font-weight: 700;
+      color: #a34691;
+    }
+    .image-section {
+      display: flex;
+      justify-content: center;
+      margin: 30px auto;
+      max-width: 100%;
+    }
+    .image-section img {
+      width: 60%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(199, 21, 133, 0.2);
+    }
+    .search-section {
+      text-align: center;
+      margin-top: 10px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .search-box {
+      margin: 20px auto;
+      width: 60%;
+      display: flex;
+      border: 2px solid #ffb6c1;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+    }
+    .search-box input {
+      flex: 1;
+      padding: 14px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+    }
+    .search-box button {
+      padding: 0 24px;
+      border: none;
+      background-color: #a34691;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .search-box button:hover {
+      background-color: #a34691;
+    }
+    .gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  gap: 20px;
+  padding: 40px 60px;
+}
+    .gallery-item {
+      text-align: center;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .gallery-item a {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #a34691;
+      text-decoration: none;
+    }
+    .gallery-item a:hover {
+      text-decoration: underline;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+    <div class="hero">Explore Mental health</div>
+  <!-- <div class="search-section">
+    <div class="search-box">
+      <input type="text" placeholder="Search journals, books, images, and primary sources">
+      <button>🔍</button>
+    </div>
+  </div> -->
+
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="https://th.bing.com/th/id/OIP.SRhgcQZRJkST6QvCoSFFIgHaGE?rs=1&pid=ImgDetMain" alt="Item 7">
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10993087/">Physiological Changes in Pregnant Women</a>
+    </div>
+    <div class="gallery-item">
+      <img src="https://cdn.shopify.com/s/files/1/0038/5417/2275/files/2_9.png?v=1682526398" alt="Item 7">
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6226272/">Reproductive Aging</a>
+    </div>
+    <div class="gallery-item">
+      <img src="https://wallpapers.com/images/hd/woman-with-clock-and-menopause-306d9t7kr1qg659a.jpg" alt="Item 7">
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3823936/">Menopausal Transition </a>
+    </div>
+    <div class="gallery-item">
+      <img src="https://media.licdn.com/dms/image/v2/D5612AQFNapfn50G3Bg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1687584728113?e=2147483647&v=beta&t=onF0F_8PU1AUDBc9UHiXgW5_Lr3tS3o8pGOVx9JrtCg" alt="Item 1">
+      <a href="https://www.pinerest.org/newsroom/articles/mental-health-awareness-blog/">Importance of mental health</a>
+    </div>
+    <div class="gallery-item">
+      <img src="https://res.cloudinary.com/people-matters/image/upload/fl_immutable_cache,w_624,h_351,q_auto,f_auto/v1626732280/1626732280.jpg" alt="Item 2">
+      <a href="https://www.medicalnewstoday.com/articles/8933">More on Depression</a>
+    </div>
+    <div class="gallery-item">
+      <img src="https://pasadenavilla.com/wp-content/uploads/2024/04/PV-Blog-Featured-Image-representation-of-anxiety-and-depression-1024x683.png" alt="Item 3">
+      <a href="https://newsinhealth.nih.gov/2016/03/understanding-anxiety-disorders">Understanding Anxiety</a>
+    </div>
+    <div class="gallery-item">
+      <img src="https://i0.wp.com/www.yesmagazine.org/wp-content/uploads/2018/08/cover.jpg?fit=400%2C515&quality=90&ssl=1" alt="Item 4">
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4409431/">Understanding Mental health</a>
+    </div>
+    <div class="gallery-item">
+      <img src="https://media.licdn.com/dms/image/D5612AQGlGO4NISGssQ/article-cover_image-shrink_720_1280/0/1684283514424?e=2147483647&v=beta&t=P8wMt1smSs7xQwAE7fsrmyJpgeI4FfP0TrHNhn-0cnI" alt="Item 5">
+      <a href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health">Caring For your mental health</a>
+    </div>
+    <div class="gallery-item">
+      <img src="https://www.practostatic.com/fit/da3ab880abb042e58b58171beac0628753c7768b" alt="Item 6">
+      <a href="https://www.betterhealth.vic.gov.au/health/healthyliving/exercise-and-mental-health">How exercise benefits mental health</a>
+    </div>
+    <div class="gallery-item">
+      <img src="https://blog.uat.edu/hubfs/people-who-do-hobbies-vector.jpg" alt="Item 7">
+      <a href="https://www.verywellmind.com/the-importance-of-hobbies-for-stress-relief-3144574">Why having a hobby is important</a>
+    </div>
+    <div class="gallery-item">
+        <img src="https://manoshanti.com/wp-content/uploads/2024/01/The-understanding-of-Yoga-to-Foster-Mental-health.png.webp" alt="Item 7">
+        <a href="https://www.health.harvard.edu/staying-healthy/yoga-for-better-mental-health">Yoga for Mental Health</a>
+      </div>
+      <div class="gallery-item">
+        <img src="https://d2jx2rerrg6sh3.cloudfront.net/images/Article_Images/ImageForArticle_22455_16516760098273519.jpg" alt="Item 7">
+        <a href="https://hicares.hawaii.gov/2024/01/the-link-between-hormones-and-mental-health/">Hormones vs Mental Health</a>
+      </div>
+      <div class="gallery-item">
+        <img src="https://img.freepik.com/premium-vector/psychotherapy-psychology-support-concept-two-woman-different-states-consciousness-mind-depression-positive-mental-health-mood-vector-illustration-flat_186332-1262.jpg" alt="Item 7">
+        <a href="https://www.betterhealth.vic.gov.au/health/healthyliving/Strong-relationships-strong-health">How relationships affect mental health</a>
+      </div>
+      
+  </div>
+
+
+
+  <div class="image-section">
+    <img src="https://www.shutterstock.com/image-vector/inspirational-word-cloud-butterfly-shape-600nw-2324246155.jpg" alt="Butterfly Word Cloud">
+  </div>
+
+
+</body>
+
+{% endblock %}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Severity Result</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .content-container {
+      display: flex;
+      width: 100%;
+      max-width: 1400px;
+      background-color: #fff;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      height: 85vh;
+    }
+
+    .image-container {
+      width: 45%;
+      background-color: #fdf3f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .text-container {
+      width: 60%;
+      padding: 60px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #a34691;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 22px;
+      color: #34495e;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #a34691;
+      margin: 20px 0;
+    }
+
+    .button {
+      text-decoration: none;
+      color: white;
+      background-color: #a34691;
+      padding: 14px 30px;
+      border-radius: 30px;
+      margin-top: 20px;
+      font-size: 18px;
+      display: inline-block;
+      transition: 0.3s ease;
+      margin-right: 10px;
+    }
+
+    .button:hover {
+      background-color: #902d7b;
+      transform: translateY(-3px);
+    }
+
+    .button-next {
+      background-color: #3498db;
+    }
+
+    .button-next:hover {
+      background-color: #2980b9;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .content-container {
+        flex-direction: column;
+      }
+
+      .image-container,
+      .text-container {
+        width: 100%;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="content-container">
+    <!-- Left Image -->
+    <div class="image-container">
+      <img src="https://i.pinimg.com/originals/70/67/86/70678607c3e0bdf953999420921da195.gif" alt="Setting Illustration" />
+    </div>
+
+    <!-- Right Content -->
+    <div class="text-container">
+      <h1>Your Severity Level</h1>
+      <p>Your severity level based on the answers is:</p>
+      <h2 id="severity-text"></h2>
+      <a href="/" class="button">Retake Questionnaire</a>
+      <button class="button button-next" id="next-button">Next: View Recommendations</button>
+    </div>
+  </div>
+
+  <script>
+    const severity = "{{ severity }}";  // Server-rendered variable
+    const severityEncoding = { "High": 0, "Medium": 2, "Low": 1 };
+
+    if (severity in severityEncoding) {
+      sessionStorage.setItem("severity", severityEncoding[severity]);
+    }
+    document.getElementById("severity-text").innerText = severity;
+
+    document.getElementById("next-button").addEventListener("click", function () {
+      const inputData = {
+        "Age Group": Number(sessionStorage.getItem("Age Group")),
+        "Sleep Hours": Number(sessionStorage.getItem("Sleep Hours")),
+        "Work Hours": Number(sessionStorage.getItem("Work Hours")),
+        "Physical Activities": Number(sessionStorage.getItem("Physical Activities")),
+        "Mental State": Number(sessionStorage.getItem("Mental State")),
+        "Severity": Number(sessionStorage.getItem("severity"))
+      };
+
+      fetch("/recommendations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(inputData)
+      })
+      .then(response => response.json())
+      .then(data => {
+        window.location.href = "/recommendations";
+      })
+      .catch(error => console.error("Error:", error));
+    });
+  </script>
+</body>
+</html>

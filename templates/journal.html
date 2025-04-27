@@ -30,12 +30,31 @@
                     </div>
                     <button type="submit" class="btn btn-primary w-100 py-2" style="background-color: #a34691; border-color: #a34691; border-radius: 5px;">Analyze Sentiment</button>
                 </form>
-
+                
                 {% if show_weekly_report %}
                     <div class="mt-4">
                         <a href="/weekly_report" class="btn btn-secondary w-100 py-2" style="border-radius: 5px;">View Weekly Report</a>
                     </div>
                 {% endif %}
+                
+                <!-- Display previous journal entries -->
+                <div class="mt-5">
+                    <h2>Previous Entries</h2>
+                    {% if user_entries %}
+                        <div class="list-group">
+                            {% for entry in user_entries %}
+                                <div class="list-group-item">
+                                    <p><strong>Date:</strong> {{ entry.date.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+                                    <p><strong>Sentiment:</strong> {{ entry.sentiment }}</p>
+                                    <p>{{ entry.content }}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p>No previous entries found.</p>
+                    {% endif %}
+                </div>
+                
             </div>
         </div>
     </div>

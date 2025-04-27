@@ -3,40 +3,109 @@
 {% block title %}Weekly Report{% endblock %}
 
 {% block content %}
+<div class="text-center mb-4 fade-in">
+    <h4>Hello, {{ username }} ({{ age }} years old)</h4>
+    <p class="text-muted">Here is your sentiment report for the week.</p>
+</div>
+
 <div class="container mt-5 py-5">
-    <h2 class="text-center mb-5" style="color: #a34691;">Your Weekly Sentiment Report</h2>
+    <h2 class="text-center mb-5 fade-in" style="color: #a34691;">Your Weekly Sentiment Report</h2>
 
     <div class="row g-4">
         <!-- Total Entries Section -->
-        <div class="col-md-6">
-            <div class="card shadow-sm p-4">
+        <div class="col-md-6 fade-in">
+            <div class="card shadow-sm p-4" style="border-radius: 10px; background: #f9f9f9;">
                 <div class="card-body text-center">
                     <h3 class="card-title" style="color: #a34691;">Total Entries</h3>
-                    <p class="display-4">{{ total_entries }}</p>
+                    <p class="display-4" style="font-weight: bold;">{{ total_entries }}</p>
+                    <p class="text-muted">Entries in the past week</p>
                 </div>
             </div>
         </div>
 
         <!-- Average Sentiment Section -->
-        <div class="col-md-6">
-            <div class="card shadow-sm p-4">
+        <div class="col-md-6 fade-in">
+            <div class="card shadow-sm p-4" style="border-radius: 10px; background: #f9f9f9;">
                 <div class="card-body text-center">
                     <h3 class="card-title" style="color: #a34691;">Average Sentiment</h3>
-                    <p>Happy: {{ happy_percentage }}%</p>
-                    <p>Sad: {{ sad_percentage }}%</p>
+                    <p style="font-weight: bold;">Positive: {{ positive_percentage }}%</p>
+                    <p style="font-weight: bold;">Negative: {{ negative_percentage }}%</p>
+                    <p class="text-muted">This reflects the mood in your journal entries for the week.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Sentiment Bar Chart -->
-    <div class="text-center mt-5">
-        <h4>Sentiment Distribution</h4>
-        <img src="data:image/png;base64,{{ plot_url }}" alt="Sentiment Distribution Chart" class="img-fluid mt-3">
+    <!-- Daily Sentiment Breakdown -->
+    <div class="mt-5 fade-in">
+        <h3 class="text-center" style="color: #a34691;">Daily Sentiment Breakdown</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Positive Sentiment (%)</th>
+                    <th>Negative Sentiment (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for day, sentiment in daily_sentiment_summary.items() %}
+                <tr>
+                    <td>{{ day }}</td>
+                    <td>{{ sentiment.Positive }}%</td>
+                    <td>{{ sentiment.Negative }}%</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
-
-    <div class="text-center mt-5">
-        <a href="/journal" class="btn btn-primary" style="background-color: #a34691; padding: 10px 20px;">Back to Journal</a>
+<!-- Sentiment Improvement Suggestions -->
+<div class="mt-5 fade-in">
+    <h3 class="text-center" style="color: #a34691;">Suggestions for Improvement</h3>
+    <div class="card shadow-sm p-4" style="border-radius: 10px; background: #f9f9f9;">
+        <div class="card-body text-center">
+            {% if positive_percentage < 50 %}
+            <h4 style="color: #ff6666;">Your sentiment is leaning negative this week.</h4>
+            <p>Here are some tips to help improve your mood:</p>
+            <ul>
+                <li>Take short breaks throughout the day to relax and clear your mind.</li>
+                <li>Try journaling positive experiences or things you are grateful for.</li>
+                <li>Incorporate physical activities, such as a walk, yoga, or exercise.</li>
+                <li>Consider listening to soothing music or engaging in a hobby you enjoy.</li>
+                <li>Seek support from friends or family if needed.</li>
+            </ul>
+            {% else %}
+            <h4 style="color: #66cc66;">Your sentiment is leaning positive this week!</h4>
+            <p>Keep up the good work! Here are some additional tips to maintain a positive mindset:</p>
+            <ul>
+                <li>Continue engaging in activities that uplift you.</li>
+                <li>Focus on the positive moments in your day and reflect on them.</li>
+                <li>Stay connected with loved ones and share your positive experiences.</li>
+                <li>Practice mindfulness and stay present in the moment.</li>
+            </ul>
+            {% endif %}
+        </div>
     </div>
 </div>
+
+    <!-- Sentiment Pie Chart -->
+    <div class="text-center mt-5 fade-in">
+        <h4>Sentiment Distribution</h4>
+        <p class="text-muted">This chart visualizes the distribution of your sentiment over the last week.</p>
+    </div>
+
+    <div class="chart-container mt-3">
+        <img src="data:image/png;base64,{{ plot_url }}" class="img-fluid" alt="Sentiment Pie Chart">
+    </div>
+    <div class="text-center mt-4">
+        <a href="{{ url_for('download_weekly_report_pdf') }}" class="btn btn-outline-primary">
+            Download PDF Report
+        </a>
+    </div>
+    
+    
+    <div class="text-center mt-5 zoom-in">
+        <a href="/journal" class="btn btn-primary" style="background-color: #a34691; padding: 12px 25px; font-size: 16px;">Back to Journal</a>
+    </div>
+</div>
+
 {% endblock %}

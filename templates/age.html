@@ -1,27 +1,51 @@
 {% extends "base.html" %}
-
 {% block title %}Women's Mental Health - Select Age{% endblock %}
 
 {% block content %}
 <div class="container my-5">
-    <header class="text-center">
-        <h1>Women's Mental Health Application</h1>
-    </header>
-
+  
+    <!-- Progress Indicator -->
+    <div class="progress" style="height: 8px;">
+        <div class="progress-bar" role="progressbar" style="width: 25%; background-color: #a34691;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    
     <!-- Age Selection Section -->
-    <section class="category-section">
-        <form action="/mental-states" method="get" class="text-center">
-            <div class="age-selection">
-                <label for="age" class="h4"><b>Select your age:</b></label> <br>
-                <select id="age" name="age" class="form-control mx-auto" style="width: 200px; margin: 10px 0;">
-                    <option value="" disabled selected>Select your age</option>
-                    {% for age in range(15, 31) %}
-                    <option value="{{ age }}">{{ age }}</option>
-                    {% endfor %}
-                </select>
-                <button type="submit" class="btn btn-primary mt-3">Next</button>
-            </div>
-        </form>
+    <section class="category-section mt-4 p-4 rounded shadow" style="background-color: #fdf3f7;">
+        <div class="text-center">
+            <label for="age" class="h4 d-block mb-3 text-dark"><b>Select your age group:</b></label>
+            
+            <select id="age" name="age" class="form-select mx-auto" style="width: 250px;">
+                <option value="" disabled selected>Select your age group</option>
+                <option value="0">15-19</option>
+                <option value="1">20-24</option>
+                <option value="2">25-30</option>
+            </select>
+            
+            <button onclick="storeAge()" class="btn mt-4" style="background-color: #a34691; color: white; font-weight: bold; border-radius: 20px; padding: 10px 20px; transition: 0.3s;">Next</button>
+        </div>
     </section>
 </div>
+
+<script>
+function storeAge() {
+    let age = document.getElementById("age").value;
+    if (age) {
+        sessionStorage.setItem("Age Group", age);
+        window.location.href = "/daily-routine";
+    } else {
+        alert("Please select an age group.");
+    }
+}
+</script>
+
+<style>
+    .btn:hover {
+        background-color: #902d7b;
+        transform: scale(1.05);
+    }
+    .category-section {
+        max-width: 500px;
+        margin: auto;
+    }
+</style>
 {% endblock %}
